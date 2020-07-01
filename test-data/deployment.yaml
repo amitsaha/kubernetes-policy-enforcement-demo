@@ -19,7 +19,7 @@ spec:
         ports:
         - containerPort: 5678
 
-      - name: http-echo
+      - name: http-echo-1
         image: hashicorp/http-echo:latest
         args: ["-text", "hello-world"]
         ports:
