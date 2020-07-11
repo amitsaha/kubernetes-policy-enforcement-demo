@@ -12,13 +12,13 @@ spec:
       rego: |
         package k8simagetagvalid
 
-        violation[{"msg": msg}] {         
+        violation[{"msg": msg, "details":{}}] {         
           image := input.review.object.spec.template.spec.containers[_].image
           not count(split(image, ":")) == 2
           msg := sprintf("image '%v' doesn't specify a valid tag", [image])
         }
 
-        violation[{"msg": msg}] {
+        violation[{"msg": msg, "details":{}}] {
           image := input.review.object.spec.template.spec.containers[_].image
           endswith(image, "latest")  
           msg := sprintf("image '%v' uses latest tag", [image])
