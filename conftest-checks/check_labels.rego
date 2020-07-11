@@ -4,7 +4,7 @@ deny[msg] {
   input.kind == "Deployment"  
 
   required := {"app", "project"}
-  provided := {label | input.spec.template.metadata.labels[label]}
+  provided := {label | input.metadata.labels[label]}
   missing := required - provided
   
   count(missing) > 0
