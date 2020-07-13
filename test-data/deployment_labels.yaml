@@ -11,6 +11,9 @@ spec:
     matchLabels:
       app: http-echo
   template:
+    metadata:
+      labels:
+        app: http-echo
     spec:
       containers:
       - name: http-echo

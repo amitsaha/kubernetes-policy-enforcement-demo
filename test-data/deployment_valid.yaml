@@ -4,6 +4,7 @@ metadata:
   name: http-echo
   labels:
     app: http-echo
+    project: test
 spec:
   replicas: 2
   selector:
@@ -16,13 +17,13 @@ spec:
     spec:
       containers:
       - name: http-echo
-        image: hashicorp/http-echo
+        image: hashicorp/http-echo:0.2.3
         args: ["-text", "hello-world"]
         ports:
         - containerPort: 5678
 
       - name: http-echo-1
-        image: hashicorp/http-echo:latest
+        image: hashicorp/http-echo:0.2.1
         args: ["-text", "hello-world"]
         ports:
         - containerPort: 5678
